@@ -27,21 +27,30 @@ module.exports = function (controller) {
 		throw 'bot not defined'
 
   bot.onText(/\/start/, (msg) => {
-		var directory = path.resolve(__dirname + '/../../images/')
-		var fp = directory + '/' + 'welcome.png'
-    bot.sendPhoto(msg.chat.id, fp, {
-        reply_markup: JSON.stringify({
-          inline_keyboard: [
-            [{
-              text: "🏆 بازی رو بفرست 🏆",
-              callback_data: JSON.stringify({
-                button: "Start"
-              })
-            }]
-          ]
-        })
-      }
-    )
+		var user = app.models.user
+		var data = {
+			telegramId: msg.from.id,
+			date: msg.date
+		}
+		user.findOrCreate({'where':{'telegramId': msg.from.id}},data, function(err, result) {
+			if (err)
+				return console.log('ERROR in USER')
+			var directory = path.resolve(__dirname + '/../../images/')
+			var fp = directory + '/' + 'welcome.png'
+			bot.sendPhoto(msg.chat.id, fp, {
+					reply_markup: JSON.stringify({
+						inline_keyboard: [
+							[{
+								text: "🏆 بازی رو بفرست 🏆",
+								callback_data: JSON.stringify({
+									button: "Start"
+								})
+							}]
+						]
+					})
+				}
+			)
+		})
   })
 
   bot.on("callback_query", function (cq) {
