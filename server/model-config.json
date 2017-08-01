@@ -12,5 +12,9 @@
       "../common/mixins",
       "./mixins"
     ]
+  "client": {
+    "dataSource": "mongoDs",
+    "public": true
+  },
   }
 }

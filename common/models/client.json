@@ -1,0 +1,26 @@
+{
+  "name": "client",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "telegramId": {
+      "type": "string",
+      "required": true
+    },
+    "coreId": {
+      "type": "string",
+      "required": true
+    },
+    "coreAccessToken": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
