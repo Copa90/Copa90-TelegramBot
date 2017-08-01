@@ -20,5 +20,9 @@
   "controller": {
     "dataSource": null,
     "public": true
+  },
+  "user": {
+    "dataSource": "mongoDs",
+    "public": true
   }
 }
