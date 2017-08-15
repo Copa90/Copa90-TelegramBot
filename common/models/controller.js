@@ -13,7 +13,7 @@ function generateQueryString(data) {
 	return ret.join("&")
 }
 
-var gameBaseURL = 'www.flieral.com'
+var gameBaseURL = 'http://copa90.ir'
 
 module.exports = function (controller) {
 
